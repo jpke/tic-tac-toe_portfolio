@@ -18,10 +18,11 @@ var Board = React.createClass({
             ReactDOM.render(<div>You idiot, the game is over!</div>, document.getElementById('result'));
             return;
         }
+        let squareArray
         if (this.state.square[event.target.id] !== "") {
             //do nothing
         } else if (this.state.count % 2 === 0) {
-            var squareArray = this.state.square;
+            squareArray = this.state.square;
             squareArray[event.target.id] = "X";
             this.setState({
                 playerXO: "O",
@@ -29,7 +30,7 @@ var Board = React.createClass({
                 count: this.state.count+1
             });
         } else {
-            var squareArray = this.state.square;
+            squareArray = this.state.square;
             squareArray[event.target.id] = "O";
             this.setState({
                 playerXO: "X",
@@ -53,7 +54,7 @@ var Board = React.createClass({
             if(this.checkWin(this.state.winCond[i])) {
                 this.state.gameOver = true;
                 if (this.state.playerXO === "X") {
-                    this.props.winCount("X");  
+                    this.props.winCount("X");
                 } else {
                     this.props.winCount("O");
                 }
@@ -101,7 +102,7 @@ var Board = React.createClass({
                 <button onClick={this.props.deleteBoard}>Delete Board</button>
             </div>
         );
-    }   
+    }
 });
 
 module.exports = Board;

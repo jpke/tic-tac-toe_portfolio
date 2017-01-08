@@ -1,5 +1,4 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 var Board = require('./board')
 
 var BoardContainer = React.createClass({
@@ -42,7 +41,7 @@ var BoardContainer = React.createClass({
 	    		<h1 id="X">X: {this.state.x}</h1>
 	    		<h1 id="O">O: {this.state.o}</h1>
 	    		<button id="create" onClick={this.createBoard}>Create Tic-Tac-Toe Board</button>
-	        	{this.state.boards.map(board => 
+	        	{this.state.boards.map(board =>
 		    		(<Board title={"Tic-Tac-Toe " + board} deleteBoard={this.deleteBoard.bind(null, board)} winCount={this.winCount} key={board}/>)
 		    	)}
 	        </div>
